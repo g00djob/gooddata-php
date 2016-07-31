@@ -10,3 +10,9 @@ RUN   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" 
       && php composer-setup.php --install-dir=/usr/bin \
       && php -r "unlink('composer-setup.php');" \
       && mv /usr/bin/composer.phar /usr/local/bin/composer
+
+COPY  . /var/www/html
+
+RUN   cp -p /var/www/html/app/config/parameters.yml.dist /var/www/html/app/config/parameters.yml \
+      && composer install \
+      && chown -R www-data /var/www/html
