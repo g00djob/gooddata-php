@@ -30,14 +30,21 @@ function deploy_docker {
   curl --insecure "https://githook.gj.kr0.fr?tag=$tag&branch=$branch&key=$DEPLOY_KEY"
 }
 
+# Step 0
+docker info
+
 # Step 1
 docker_build $DOCKERFILE $TAG
 [ $? -ne 0 ] && echo "Docker build Failed" && exit 2
 
 # Step 2
+## TODO
+## TESTS
+
+# Step 3
 push_docker $TAG
 [ $? -ne 0 ] && echo "Docker push Failed" && exit 3
 
-# Step 3
+# Step 4
 deploy_docker $TAG $TRAVIS_BRANCH
 [ $? -ne 0 ] && echo "Docker deploy Failed" && exit 4
