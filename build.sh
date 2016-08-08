@@ -20,7 +20,7 @@ function push_docker {
     exit 12
   fi
   tag=$1
-  yes | docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  echo "fake@goodjob.fr" | docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   docker push $tag
 }
 
