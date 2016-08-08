@@ -14,7 +14,7 @@ function docker_build {
 
 # Push docker
 function push_docker {
-  if [ -z "$DOCKER_USER"] || [ -z "$DOCKER_PASSWORD" ]; then
+  if [ -z "$DOCKER_USER" ] || [ -z "$DOCKER_PASSWORD" ]; then
     echo "DOCKER_USER and DOCKER_PASSWORD not found, Failed"
     exit 12
   fi
