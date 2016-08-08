@@ -10,6 +10,7 @@ DOCKERFILE="Dockerfile"
 function docker_build {
   df=$1
   tag=$2
+  echo "###### Build docker : docker build -t $tag -f $df ."
   docker build -t $tag -f $df .
 }
 
@@ -21,6 +22,7 @@ function push_docker {
   fi
   tag=$1
   echo "fake@goodjob.fr" | docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  echo "###### Psuh docker : docker push $tag"
   docker push $tag
 }
 
@@ -28,6 +30,7 @@ function push_docker {
 function deploy_docker {
   tag=$1
   branch=$2
+  echo "###### Deploy docker : curl --insecure \"https://githook.gj.kr0.fr?tag=$tag&branch=$branch&key=$DEPLOY_KEY\""
   curl --insecure "https://githook.gj.kr0.fr?tag=$tag&branch=$branch&key=$DEPLOY_KEY"
 }
 
