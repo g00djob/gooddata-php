@@ -10,7 +10,7 @@ DOCKERFILE="Dockerfile"
 function docker_build {
   df=$1
   tag=$2
-  docker build -t goodjob/$tag -f $df .
+  docker build -t $tag -f $df .
 }
 
 # Push docker
