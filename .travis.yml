@@ -4,7 +4,4 @@ services:
   - docker
 
 script:
-  - docker build -t goodjob/gooddata .
-
-after_success:
-  - bash deploy.sh
+  - bash build.sh gooddata
