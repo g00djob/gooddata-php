@@ -1,6 +1,7 @@
 #!/bin/bash
 PROJECT="$1"
-TAG="$PROJECT:$TRAVIS_BRANCH"
+USER="goodjob"
+TAG="$USER/$PROJECT:$TRAVIS_BRANCH"
 DOCKERFILE="Dockerfile"
 
 [ -z "$PROJECT" ] && echo "Usage : $0 project_name" && exit 1
