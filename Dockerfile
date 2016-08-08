@@ -15,4 +15,5 @@ COPY  . /var/www/html
 
 RUN   cp -p /var/www/html/app/config/parameters.yml.dist /var/www/html/app/config/parameters.yml \
       && composer install \
-      && chown -R www-data /var/www/html
+      && chown -R www-data /var/www/html \
+      && sed "s#DocumentRoot /var/www/html#DocumentRoot /var/www/html/web#g" /etc/apache2/sites-available/000-default.conf
